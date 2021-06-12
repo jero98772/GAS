@@ -1,0 +1,64 @@
+{% extends  'template.html'%}
+{% block content %}
+<h1> GAS </h1>
+<h2> <b onclick="alert('que desagradable , incomodo o/y aburrido   es gastar , una herramienta para ser un poco conciente al GAStar \n spend in spanish is <<GAStar>>  , unpleasant, uncomfortable or boring is called <<GAS>> in popular expression   ')"><< GAS >></b> gastar </h2>
+<a href="/">project information</a>
+<br>
+<br>
+<hr>
+<br>
+<h4> data is required <p class="required"> * </p></h4>
+<form method="POST" action="/gas.html" >
+	<table style=" width:100%;" border="1">
+		<tr>
+			<td><h2>item <p class="required"> * </p></h2></td>
+			<td><h2>category <p class="required"> * </p></h2></td>
+			<td><h2>thread (no working)<p class="required"> * </p></h2></td>
+			<td><h2>price <p class="required"> * </p></h2></td>
+			<td><h2>amount <p class="required"> * </p></h2></td>
+			<td><h2>date <p class="required"> * </p></h2></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="item" placeholder="articulo en la que se gasto" required></td>
+			<td><input type="text" name="category" placeholder="categoria del articulo" autocomplete="on" required></td>
+			<td><input type="text" name="thread" placeholder="tema o asunto palabra clave para identificar esa compra o esas compras" required></td>
+			<td><input type="text" name="price" placeholder="precio del producto" required></td>
+			<td><input type="text" name="amount" placeholder="cantidad del producto"  required ></td>
+			<td><input type="text" name="date" placeholder="fecha cuando ingreso el pago" value="{{now}}" required></td>
+		</tr>
+	</table>
+<button type="summit ">summit </button>
+<h1>data</h1>
+<br>
+<center>
+<h1>promedio :( {{ avg }} )   suma:( {{ sum }} )</h1>	
+</center>
+	<table style=" width:100%;" border="1">
+		<tr>
+			<td><h2>id</h2></td>
+			<td><h2>item</h2></td>
+			<td><h2>category</h2></td>
+			<td><h2>thread</h2></td>
+			<td><h2>price</h2></td>
+			<td><h2>amount</h2></td>
+			<td><h2>date</h2></td>
+			<td><h2>edit</h2></td>
+			<td><h2>delete</h2></td>
+		</tr>
+		{% for purchase in purchases  %} 
+			
+		<tr>
+			<td><h2>{{purchase.0}}</h2></td>
+			<td><h2>{{purchase.1}}</h2></td>
+			<td><h2>{{purchase.2}}</h2></td>
+			<td><h2>{{purchase.3}}</h2></td>
+			<td><h2>{{purchase.4}}</h2></td>
+			<td><h2>{{purchase.5}}</h2></td>
+			<td><h2>{{purchase.6}}</h2></td>
+			<td><h2 ><a  class="button" href="/gas/editar{{purchase.0}}">edit</a></h2></td>
+			<td><h2><a class="button" href="/gas/eliminar/{{purchase.0}}">delete</a></h2></td>		</tr>
+		{% endfor %}
+	</table>
+
+</form>
+{% endblock %}

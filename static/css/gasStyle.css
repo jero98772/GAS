@@ -1,0 +1,73 @@
+body {
+  background-color: rgba(0,0,0,0.5);
+color: orange;
+}
+* {
+  margin:0px;
+  padding:0px;
+
+}
+.bar li a {
+  background-color:orange;
+  color:white;
+  text-decoration:none;
+  padding:10px 13.9px;
+  display:block;
+}
+.bar li a:hover {
+  background-color:yellow;
+}
+
+.bar > li {
+  float:left;
+}
+ul, ol {
+  list-style:none;
+}
+/*
+#headerbar {
+  margin:auto;
+  width:100%;
+  font-size: 14px;
+  background-color: : yellow;/*background of upper menu
+  color: orange;/*text
+}
+  background-color:green;
+  color:white;
+*/
+.codeIt{
+  background-color: rgba(0,0,0,0.5);
+  width: 90%;
+  height: auto;
+  margin: auto;
+  border:  5px solid rgba(0,0,0,0.7);
+  font-size: 15px;
+  line-height: auto;
+
+}
+.morecenter{
+  background-color: rgba(0,0,0,0);
+  width: 90%;
+  height: auto;
+  margin: auto;
+  border:  5px solid rgba(0,0,0,0);
+  font-size: 15px;
+  line-height: auto;
+}
+  .button {
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background: white;
+  text-shadow: 5%; 
+}
+ .required{
+ 	color: red;
+ }
+ 

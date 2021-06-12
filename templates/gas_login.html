@@ -1,0 +1,21 @@
+{% extends  'template.html'%}
+{% block content %}
+{% if session['loged'] %}
+
+you are logged 
+
+{% else %}
+<center>
+<h1>GAS</h1>
+<p><a href="/gasinfo.html">what is gas ?</a></p>
+<h2>login</h2>
+for test can login with
+<h3><b>username:<b>test     <b>pasword:</b>test</h3>
+<form action="/gas_login.html" method="POST">
+<input type="username" name="username" placeholder="Username">
+<input type="password" name="password" placeholder="Password">
+<input type="submit" value="Log in">
+</form>
+</center>
+{% endif %}
+{% endblock %}

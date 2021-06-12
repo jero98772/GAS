@@ -1,0 +1,25 @@
+{% extends  'template.html'%}
+{% block content %}
+<!-- input que lleve a una direicencion de con el contenido del input-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/proyects/gas/filter_thread.js')}}"></script>
+<h2><p>filter thread</p></h2>
+<br>
+<input type="text" name="searchtxt" id="searchtxt">
+<input type="button" onclick="	window.location.href = document.getElementById('searchtxt').value" value="go" />
+<br>
+<table>
+	<tr>
+		<th>
+			<p>temas o asuntos, palabras claves</p>
+		</th>
+	</tr>		
+{% for thread in threads %}
+	<tr>
+		<td>
+			<a href="/gas/filter/{{ thread }}">{{ thread }}</a>
+		</td>
+	</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

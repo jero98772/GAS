@@ -1,0 +1,78 @@
+{% extends  'template.html'%}
+{% block content %}
+<style type="text/css">
+  .button {
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background: white;
+  text-shadow: 5%; 
+}
+
+
+</style>
+<form method="post" action="/gas.html"  enctype="multipart/form-data">
+	<table style=" width:100%;" border="1">
+		<tr>
+			
+			<td><h2>item</h2></td>
+			<td><h2>category</h2></td>
+			<td><h2>thread</h2></td>
+			<td><h2>price</h2></td>
+			<td><h2>amount</h2></td>
+			<td><h2>date</h2></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="item" placeholder="articulo en la que se gasto" ></td>
+			<td><input type="text" name="category" placeholder="categoria del articulo" autocomplete="on"></td>
+			<td><input type="text" name="thread" placeholder="palabra clave para identificar esa compra o esas compras" ></td>
+			<td><input type="text" name="price" placeholder="precio de la cosa" ></td>
+			<td><input type="text" name="amount" placeholder="cantidad de la cosa" ></td>
+			<td><input type="text" name="date" placeholder="fecha cuando ingreso el pago" value="{{now}}"></td>
+		</tr>
+	</table>
+<button type="summit ">summit </button>
+<h1>data</h1>
+<br>
+<center>
+<h1>
+	average :( {{ avg }} )   total:( {{ sum }} )
+	<br>
+	of {{ threadName }}
+</h1>	
+</center>
+	<table style=" width:100%;" border="1">
+		<tr>
+			<td><h2>id</h2></td>
+			<td><h2>item</h2></td>
+			<td><h2>category</h2></td>
+			<td><h2>thread</h2></td>
+			<td><h2>price</h2></td>
+			<td><h2>amount</h2></td>
+			<td><h2>date</h2></td>
+			<td><h2>edit</h2></td>
+			<td><h2>delete</h2></td>
+		</tr>
+		{% for purchase in purchases  %} 
+			
+		<tr>
+			<td><h2>{{purchase.0}}</h2></td>
+			<td><h2>{{purchase.1}}</h2></td>
+			<td><h2>{{purchase.2}}</h2></td>
+			<td><h2>{{purchase.3}}</h2></td>
+			<td><h2>{{purchase.4}}</h2></td>
+			<td><h2>{{purchase.5}}</h2></td>
+			<td><h2>{{purchase.6}}</h2></td>
+			<td><h2 ><a  class="button" href="/proyects/gas/editar{{purchase.0}}">edit</a></h2></td>
+			<td><h2><a class="button" href="/proyects/gas/eliminar/{{purchase.0}}">delete</a></h2></td>		</tr>
+		{% endfor %}
+	</table>
+
+</form>
+{% endblock %}

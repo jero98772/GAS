@@ -1,0 +1,22 @@
+{% extends  'template.html'%}
+{% block content %}
+<center>
+	<h1>
+		Create User	
+	</h1>
+<br>
+<br>
+<form method="POST">
+<p><h2>Username</h2></p>
+<input type="text" name="usr" required>
+<br>
+<p><h2>Password</h2></p>
+<input type="password" name="pwd" required>
+<br>
+<p><h2>Repeat password</h2></p>
+<input type="password" name="pwd2" required>
+<br>
+<input type="submit" name="">
+</form>
+</center>
+{% endblock %}

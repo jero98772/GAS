@@ -1,0 +1,37 @@
+	{% extends  'template.html'%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/proyects/gas/gasStyle.css')}}">
+<h1> GAS UPDATE</h1>
+<h2> <b onclick="alert('que desagradable , incomodo o/y aburrido   es gastar , una herramienta para ser un poco conciente al GAStar \n spend in spanish is <<GAStar>>  , unpleasant, uncomfortable or boring is called <<GAS>> in popular expression   ')"><< GAS >></b> gastar </h2>
+<a href="/gasinfo.html">project information</a>
+<br>
+<!--h3><a href="gas/threads">Filter by subjet or topic ,here is called thread</a></h3-->
+<!-- if you dont see , dont exist ;-)-->
+<br>
+<hr>
+<form action="/gas/actualisar{{purchase.0}}" method="POST">
+<br>form action="/proyects/gas/actualisar{{purchase.0}}" method="POST" enctype="multipart/form-data">
+	<table style=" width:100%;" border="1">
+		<tr>
+			<td><h2>item <p class="required"> * </p></h2></td>
+			<td><h2>category <p class="required"> * </p></h2></td>
+			<td><h2>thread <p class="required"> * </p></h2></td>
+			<td><h2>price <p class="required"> * </p></h2></td>
+			<td><h2>amount <p class="required"> * </p></h2></td>
+			<td><h2>date <p class="required"> * </p></h2></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="item" placeholder="articulo en la que se gasto" value="{{purchase.1}}" required ></td>
+			<td><input type="text" name="category" placeholder="categoria del articulo" autocomplete="on" value="{{purchase.2}}" required></td>
+			<td><input type="text" name="thread" placeholder="categoria del articulo" autocomplete="on" value="{{purchase.3}}" required></td>
+			<td><input type="text" name="price" placeholder="categoria del articulo" autocomplete="on" value="{{purchase.4}}" required></td>
+			<td><input type="text" name="amount" placeholder="precio de la cosa" value="{{purchase.5}}" required></td>
+			<td><input type="text" name="date" placeholder="fecha cuando ingreso el pago" value="{{purchase.6}}" required></td>
+
+		</tr>
+	</table>
+<button type="summit ">summit </button>
+
+
+</form>
+{% endblock %}
