@@ -1,4 +1,5 @@
-#GAS
+# GAS
+
 ![logo](https://github.com/jero98772/GAS/blob/master/static/img/logo.jpg?raw=true)
 
 GAStar ,is spend in spanish
@@ -7,7 +8,7 @@ GAStar ,is spend in spanish
 
 a conscientious and responsible approach to spending ,respecting other people's money and handling the information in a protected way, that's why the data is encrypted with AES,it is on a web page because we wanted to publish information and provide access to this publication.
 
-###Made for:
+### Made for:
 
 record money for send log to other person , in a difficult situation and provide them access to the report in a user-friendly way, without the need to send photos of each invoice in bad hours.
 with the intention of reporting with respect.
