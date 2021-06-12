@@ -1,5 +1,6 @@
 #GAS
-#############logo
+![logo](https://github.com/jero98772/GAS/blob/master/static/img/logo.jpg?raw=true)
+
 GAStar ,is spend in spanish
 
 *GAStar is disgusting , uncomfortable and boring,Gas is a tool for register some*
@@ -30,7 +31,14 @@ you are now in gas :-)
 
 
 ### Contribute
+#### Donations
+
+	-Bitcoin: bc1qkmt64s7nuqdp7g8232lyhpytaj4ec2fyal03cn
 
 ### Screenshots
 
-#############Screenshots
+![Screenshot1](https://github.com/jero98772/GAS/blob/master/static/img/2021-06-12-150137_1345x455_scrot.png?raw=true)
+
+![Screenshot2](https://github.com/jero98772/GAS/blob/master/static/img/2021-06-12-150058_1343x591_scrot.png?raw=true)
+
+![Screenshot3](https://github.com/jero98772/GAS/blob/master/static/img/2021-06-12-145937_906x409_scrot.png)
