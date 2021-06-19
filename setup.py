@@ -5,7 +5,6 @@
 gas - 2021 - por jero98772
 gas - 2021 - by jero98772
 """
-from core.tools.webutils import genTokenFile
 from setuptools import setup, find_packages
 setup(
 	name='B→FeelLog',
@@ -19,4 +18,3 @@ setup(
     install_requires=['Flask','pycrypto'],
     include_package_data=True,
 	)
-genTokenFile("data/token.txt")
