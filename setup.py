@@ -7,8 +7,8 @@ gas - 2021 - by jero98772
 """
 from setuptools import setup, find_packages
 setup(
-	name='B→FeelLog',
-	version='1.0.0 beta',
+	name='gas',
+	version='2.0.0 beta',
 	license='GPLv3',
 	author_email='jero98772@protonmail.com',
 	author='jero98772',
