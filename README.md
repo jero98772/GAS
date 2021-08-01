@@ -31,11 +31,6 @@ next run main.py and go to [localhost:9600](localhost:9600) .
 you are now in gas :-)
 
 
-### Contribute
-#### Donations
-
-	-Bitcoin: bc1qkmt64s7nuqdp7g8232lyhpytaj4ec2fyal03cn
-
 ### Screenshots
 
 ![Screenshot1](https://github.com/jero98772/GAS/blob/master/static/img/2021-06-12-150137_1345x455_scrot.png?raw=true)
