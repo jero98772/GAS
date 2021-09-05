@@ -18,7 +18,7 @@ frist download repository.
 
 you can use for download
 	
-	 git clone https://github.com/jero98772/B-FeelLog.git
+	 git clone https://github.com/jero98772/GAS
 
 next you need install libraries
 
