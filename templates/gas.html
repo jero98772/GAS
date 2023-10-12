@@ -48,13 +48,13 @@
 		{% for purchase in purchases  %} 
 			
 		<tr>
+			<td><h2>{{loop.index}}</h2></td>
 			<td><h2>{{purchase.0}}</h2></td>
 			<td><h2>{{purchase.1}}</h2></td>
 			<td><h2>{{purchase.2}}</h2></td>
 			<td><h2>{{purchase.3}}</h2></td>
 			<td><h2>{{purchase.4}}</h2></td>
 			<td><h2>{{purchase.5}}</h2></td>
-			<td><h2>{{purchase.6}}</h2></td>
 			<td><h2 ><a  class="button" href="/gas/editar{{purchase.0}}">edit</a></h2></td>
 			<td><h2><a class="button" href="/gas/eliminar/{{purchase.0}}">delete</a></h2></td>		</tr>
 		{% endfor %}

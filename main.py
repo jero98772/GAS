@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, flash, redirect ,session
 from tools.dbInteracion import dbInteracion
 from tools.tools import *
 app = Flask(__name__)
-app.secret_key = str(enPassowrdHash(generatePassword()))
+app.secret_key = str(enPasswordHash(generatePassword()))
 DBPATH = "data/"
 DBNAMEGAS = DBPATH + "gas_db"
 TABLEGAS = "gastos"
@@ -39,39 +39,54 @@ class gas():
 	@app.route(WEBPAGE)
 	def gasinfo():
 		return render_template("gasinfo.html")
-	@app.route(WEBPAGE+"gas.html", methods = ['GET','POST'])
+	@app.route(WEBPAGE + "gas.html", methods=['GET', 'POST'])
 	def gas():
-		priceCol = "price"
-		data = []
-		db = dbInteracion(DBNAMEGAS)
-		timenow = hoyminsStr()
-		if not session.get('loged'):
-			return render_template('gas_login.html')	
-		else:
-			user = session.get('user')
-			encpwd = session.get('encpwd')
-			db.connect(TABLEGAS+user)
-			item_id =  db.getID()
-			rows = db.getDataGas()
-			keys = len(DATANAMEGAS)*[encpwd]
-			pricesum = 0
-			decdata =[]
-			i = 0
-			for row in rows:
-				decdata.append([concatenateStrInList(item_id[i])]+list(map(decryptAES,row,keys)))
-				pricesum += float(decdata[i][4])*float(decdata[i][5])
-				i += 1
-			try :
-				priceavg = pricesum / len(rows)
-			except :
-				priceavg = "no data" 
-			if request.method == 'POST':
-				data = multrequest(DATANAMEGAS)
-				data = list(map(encryptAES , data, keys))
-				data = list(map(str , data))
-				db.addGas(DATANAMEGAS,data)
-				return redirect("gas.html")
-			return render_template("gas.html",purchases = decdata,now=timenow,sum=pricesum,avg=priceavg)	
+	    priceCol = "price"
+	    data = []
+	    db = dbInteracion(DBNAMEGAS)
+	    timenow = hoyminsStr()
+
+	    if not session.get('loged'):
+	        return render_template('gas_login.html')
+	    else:
+	        user = session.get('user')
+	        encpwd = session.get('encpwd')
+	        db.connect(TABLEGAS + user)
+	        item_id = db.getID()
+	        rows = db.getDataGas()
+	        keys = len(DATANAMEGAS) * [encpwd]
+	        pricesum = 0
+	        decdata = []
+	        print(rows[0][0])
+	        print("\ndecode\n",rows,"·\n\n\n",rows[0][0],"\n",decryptAES(eval(rows[0][0]), encpwd))
+	        #print(list(map(lambda x: decryptAES(x, encpwd), rows[::-1][0])))
+	        for i in range(len(rows)):
+	        	decdata.append([])
+	        	for ii in range(len(rows[i])):
+	        		#print(rows[i][ii])
+	        		#rows[i][ii]=str(decryptAES(eval(rows[i][ii]), encpwd))
+	        		#print(decryptAES(eval(rows[i][ii]), encpwd),type(decryptAES(eval(rows[i][ii]), encpwd)))
+	        		decdata[i].append(decryptAES(eval(rows[i][ii]), encpwd))
+	        		#rows[::-1][0][ii]=decryptAES(eval(rows[::-1][0][ii], encpwd))
+	        	pricesum+=float(decdata[i][4])*float(decdata[i][3])	
+
+	        print(decdata)
+	        try:
+	            priceavg = pricesum / len(rows)
+	        except ZeroDivisionError:
+	            priceavg = "no data"
+
+	        if request.method == 'POST':
+	            data = multrequest(DATANAMEGAS)
+	            encdata=list(map(lambda x: str(encryptAES(x, encpwd)), data))
+	            print(data,encdata)
+
+	            #dec=list(map(lambda x: decryptAES(x, encpwd), encdata))
+	            print(encdata)
+	            db.addGas(DATANAMEGAS, encdata)
+	            return redirect("gas.html")
+
+	        return render_template("gas.html", purchases=decdata, now=timenow, sum=pricesum, avg=priceavg)
 	"""
 	@app.route(WEBPAGE+'gas/threads.html', methods = ['GET','POST'])
 	def gasThreads():
@@ -150,4 +165,4 @@ class gas():
 		#flash('you delete that')
 		return redirect('/gas.html')
 if __name__=='__main__':
-	app.run(debug=True,host="0.0.0.0",port=9600)
+	app.run(debug=True,host="0.0.0.0",port=9601)
